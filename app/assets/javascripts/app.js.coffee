@@ -20,22 +20,29 @@ controllers.controller("UserController", [ '$scope',
       "Basketball": 120,
       "Soccer": 34
     }
+    $scope.user = {
+      name: "Johnny Miller",
+      height: "5' 7''",
+      weight: "100",
+      email: 'littlejohnny@email.com'
+    }
+    $scope.newSport
+    $scope.sportPlayed
+    $scope.organization
+    $scope.playtime
     $scope.organizations = [{name: "Little Giants", members: ["Timmy", "Bobby", "Frank"]}, {name: "Tiny Warriors", members: ["Joe", "Miguel"]}]
+    $scope.showInfoForm = false;
     $scope.showSportForm = false;
     $scope.showOrganizationForm = false;
     $scope.showPlaytimeForm = false;
     $scope.addSport = (sport)->
-      $scope.sports.push({name: sport, playtime: 0})
-      console.log($scope.sports)
-      $scope.sport = ''
+      $scope.sports[sport] = 0
+      $scope.newSport = ''
     $scope.addOrganization = (organization)->
       $scope.organizations.push({name: organization, playtime: 0})
-      $scope.organization = ''
+      $scope.newOrganization = ''
     $scope.addPlaytime = (sport, playtime)->
-      console.log(sport)
-      console.log(playtime)
-      console.log($scope.sports)
-      console.log($scope.sports[sport])
-      # $scope.sports[sport.name]['playtime'] += playtime
-      $scope.sport.playtime = ''
+      $scope.sports[sport] = parseInt($scope.sports[sport]) + parseInt(playtime)
+      $scope.playtime = ''
+      $scope.sportPlayed = ''
 ])
