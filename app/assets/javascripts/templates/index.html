@@ -13,6 +13,7 @@
   </form>
 </section> -->
 <div class="container">
+
   <section class="container">
     <div class="page-header row">
       <h2>About Me</h2>
@@ -35,8 +36,8 @@
     </div>
     <p>Email: littlejohnny@email.com</p>
     <button class="btn btn-xs btn-info">Edit</button>
-
   </section>
+
   <section>
     <div class="page-header">
       <h2>Sports</h2>
@@ -46,7 +47,14 @@
         {{sport.name}}
       </li>
     </ul>
+    <button class="btn btn-xs btn-info" ng-click="showSportForm = true" ng-show="!showSportForm">+ Add a Sport</button>
+    <form type="text" autofocus placeholder="Sport name" ng-show="showSportForm">
+      <input type="text" ng-model="sport" name="sport"></input>
+      <button class="btn btn-xs btn-info" ng-click="addSport(sport)">Add</button>
+      <button class="btn btn-xs btn-warning" ng-click="showSportForm = false">Done</button>
+    </form>
   </section>
+
   <section>
     <div class="page-header">
       <h2>Teams and Organizations</h2>
@@ -62,6 +70,7 @@
       </li>
     </ul>
   </section>
+
   <section>
     <div class="page-header">
       <h2>Sports Participation</h2>
