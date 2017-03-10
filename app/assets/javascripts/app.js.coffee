@@ -15,4 +15,6 @@ sporthub = angular.module('sporthub',[
 controllers = angular.module('controllers',[])
 controllers.controller("UserController", [ '$scope',
   ($scope)->
+    $scope.sports = [{name: "Baseball", playtime: 460}, {name: "Basketball", playtime: 120}, {name: "Soccer", playtime: 390}]
+    $scope.organizations = [{name: "Little Giants", members: ["Timmy", "Bobby", "Frank"]}, {name: "Tiny Warriors", members: ["Joe", "Miguel"]}]
 ])
