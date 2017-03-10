@@ -13,19 +13,20 @@ sporthub = angular.module('sporthub',[
 ])
 
 controllers = angular.module('controllers',[])
-controllers.controller('UserController', [ '$scope',
-  ($scope)->
+controllers.controller('UserController', [ '$scope', 'user'
+  ($scope, user)->
     $scope.sports = {
       'Baseball': 460,
       'Basketball': 120,
       'Soccer': 34
     }
-    $scope.user = {
-      name: 'Johnny Miller',
-      height: '5ft. 7in.',
-      weight: '100',
-      email: 'littlejohnny@email.com'
-    }
+    # $scope.user = {
+    #   name: 'Johnny Miller',
+    #   height: '5ft. 7in.',
+    #   weight: '100',
+    #   email: 'littlejohnny@email.com'
+    # }
+    $scope.user = user.userData
     $scope.organizations = [{name: 'Little Giants', members: ['Timmy', 'Bobby', 'Frank']}, {name: 'Tiny Warriors', members: ['Joe', 'Miguel']}]
 
     $scope.newSport
