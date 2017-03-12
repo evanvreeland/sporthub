@@ -1,0 +1,48 @@
+doctype html
+html
+head
+  title Sporthub
+  <!-- Latest compiled and minified CSS -->
+  link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"
+
+  <!-- Optional theme -->
+  link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"
+
+  <!-- Latest compiled and minified JavaScript -->
+  script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
+
+  body
+    header.row
+      h1.text-center.col-md-6.col-md-offset-3
+        => @user.first_name
+        = @user.last_name
+
+    .container
+      section.container
+        .row.page-header
+          h2 About Me
+        div
+          p Height: #{@user.height/12} ft. #{@user.height%12} in.
+          p Weight: #{@user.weight} lbs.
+          p Email: #{@user.email}
+
+      section
+        .page-header
+          h2 Sports
+        - if @sports
+          - for sport in @sports
+            li
+              = sport
+
+      section
+        .page-header
+          h2 Teams
+        - if @teams
+          - for team in @teams
+            li
+              = team
+
+      section
+        .page-header
+          h2 Sports Participation
+        h4  Time Playing

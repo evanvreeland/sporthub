@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   def show
     @user = User.find(1)
-    puts @user.first_name
+    @sports = ['baseball', 'soccer']
   end
 end
