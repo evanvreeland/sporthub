@@ -10,7 +10,7 @@
 </head>
 
 <header class="row">
-  <h1 class="text-center col-md-6 col-md-offset-3"><%=@user.first_name + ' ' + @user.last_name%></h1>
+  <h1 class="text-center col-md-6 col-md-offset-3"><%= @user.first_name + ' ' + @user.last_name %></h1>
 </header>
 
 <div class="container">
@@ -20,33 +20,18 @@
     </div>
     <div>
       <div>
-        <p>Height: {{user.height}}</p>
+        <p>Height: <%= @user.height/12%> ft. <%= @user.height%12 %> in.</p>
       </div>
     </div>
     <div>
       <div>
-        <p>Weight: {{user.weight}}lbs</p>
+        <p>Weight: <%= @user.weight %> lbs.</p>
       </div>
     </div>
-    <p>Email: {{user.email}}</p>
+    <p>Email: <%= @user.email %></p>
     <div>
       <button class="btn btn-xs btn-info" ng-show="!showInfoForm" ng-click="showInfoForm = true">Edit Personal Info</button>
     </div>
-    <form ng-show="showInfoForm">
-      <div class="form-group">
-        <label for="email">Height</label>
-        <input type="text" class="form-control" id="height" ng-model="user.height">
-      </div>
-      <div class="form-group">
-        <label for="weight">Weight</label>
-        <input type="text" class="form-control" id="weight" ng-model="user.weight">
-      </div>
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" ng-model="user.email">
-      </div>
-      <button class="btn btn-xs btn-info" ng-show="showInfoForm" ng-click="showInfoForm = false">Done</button>
-    </form>
   </section>
 
   <section>
@@ -59,11 +44,6 @@
       </li>
     </ul>
     <button class="btn btn-xs btn-info" ng-click="showSportForm = true" ng-show="!showSportForm">+ Add a Sport</button>
-    <form type="text" autofocus placeholder="Sport name" ng-show="showSportForm">
-      <input type="text" ng-model="newSport" name="sport"></input>
-      <button class="btn btn-xs btn-info" ng-click="addSport(newSport)">Add</button>
-      <button class="btn btn-xs btn-warning" ng-click="showSportForm = false">Done</button>
-    </form>
   </section>
 
   <section>
@@ -81,11 +61,6 @@
       </li>
     </ul>
     <button class="btn btn-xs btn-info" ng-click="showOrganizationForm = true" ng-show="!showOrganizationForm">+ Add an Organization or Team</button>
-    <form type="text" autofocus placeholder="Organization name" ng-show="showOrganizationForm">
-      <input type="text" ng-model="newOrganization" name="organization"></input>
-      <button class="btn btn-xs btn-info" ng-click="addOrganization(newOrganization)">Add</button>
-      <button class="btn btn-xs btn-warning" ng-click="showOrganizationForm = false">Done</button>
-    </form>
   </section>
 
   <section>
@@ -99,17 +74,6 @@
       </li>
     </ul>
     <button class="btn btn-xs btn-info" ng-click="showPlaytimeForm = true" ng-show="!showPlaytimeForm">+ Add Playtime</button>
-    <form ng-show="showPlaytimeForm">
-      <div class="form-group">
-       <label for="sport">Select a Sport</label>
-       <select class="form-control" id="sportSelection" ng-model="sportPlayed">
-         <option ng-repeat="(key, value) in sports">{{key}}</option>
-       </select>
-       <input type="text" ng-model="playtime" name="organization">minutes played</input>
-       <button class="btn btn-xs btn-info" ng-click="addPlaytime(sportPlayed, playtime)">Add</button>
-       <button class="btn btn-xs btn-warning" ng-click="showPlaytimeForm = false">Done</button>
-     </div>
-    </form>
     </div>
   </section>
 </div>
